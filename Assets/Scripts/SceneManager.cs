@@ -15,4 +15,9 @@ public class SceneManager : MonoBehaviour
     {
         
     }
+    void LoadScene(int sceneIndex)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
+    
 }
