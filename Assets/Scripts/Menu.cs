@@ -18,7 +18,6 @@ public class Menu : MonoBehaviour
     private const string LIFE_REGAIN = "LifeRegain";
     private int life;
 
-
     // start
     private void Start()
     {
