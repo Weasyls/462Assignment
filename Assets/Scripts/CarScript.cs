@@ -51,4 +51,9 @@ public class CarScript : MonoBehaviour
     {
         speed -= speedChange;
     }
+
+    public void SetSpeedIncrease(float speedIncrease)
+    {
+        this.speedIncrease = speedIncrease;
+    }
 }
