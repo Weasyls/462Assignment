@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.unity.2d.pixel-perfect": "5.0.3",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.2d.spriteshape": "9.0.2",
     "com.unity.cinemachine": "2.9.0-pre.6",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.device-simulator.devices": "1.0.0",
@@ -7,7 +10,7 @@
     "com.unity.inputsystem": "1.4.4",
     "com.unity.mobile.notifications": "2.0.2",
     "com.unity.textmeshpro": "3.0.6",
-    "com.unity.timeline": "1.7.1",
+    "com.unity.timeline": "1.7.4",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.5",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.7.8",
