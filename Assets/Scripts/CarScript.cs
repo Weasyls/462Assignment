@@ -7,7 +7,6 @@ public class CarScript : MonoBehaviour
 {
     [SerializeField] private float speed = 30f;
     [SerializeField] private float speedIncrease = 0.1f;
-    [SerializeField] private float speedChangeWCollectible = 3f;
     [SerializeField] private float turnSpeedVal = 50f;
     public static CarScript instance;
 
@@ -24,6 +23,8 @@ public class CarScript : MonoBehaviour
     void Update()
     {
         speed += speedIncrease * Time.deltaTime;
+        //Oyunu bitir hız 0sa
+        //Araba sana bakıyosa oyunu bitir FAIL -z ise
         transform.Rotate(0f, horizontalInput * turnSpeedVal * Time.deltaTime, 0f);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
@@ -41,13 +42,13 @@ public class CarScript : MonoBehaviour
         horizontalInput = value;
     }
 
-    public void SpeedUp()
+    public void SpeedUp(int speedChange)
     {
-        speed += speedChangeWCollectible;
+        speed += speedChange;
     }
 
-    public void SlowDown()
+    public void SlowDown(int speedChange)
     {
-        speed -= speedChangeWCollectible;
+        speed -= speedChange;
     }
 }
