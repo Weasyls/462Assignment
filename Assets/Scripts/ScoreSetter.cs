@@ -8,7 +8,15 @@ public class ScoreSetter : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     private float score = 0;
     public const string HIGH_SCORE = "HighScore";
+    public static ScoreSetter instance;
     
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -24,5 +32,10 @@ public class ScoreSetter : MonoBehaviour
         {
             PlayerPrefs.SetInt(HIGH_SCORE, Mathf.FloorToInt(score));
         }
+    }
+
+    public void CalculateScore(float multiplier)
+    {
+        score *= multiplier;
     }
 }

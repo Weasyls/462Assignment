@@ -23,8 +23,18 @@ public class CarScript : MonoBehaviour
     void Update()
     {
         speed += speedIncrease * Time.deltaTime;
-        //Oyunu bitir hız 0sa
-        //Araba sana bakıyosa oyunu bitir FAIL -z ise
+        if(speed <= 0 && EndZone.instance.inEndZone){
+            SetSpeedIncrease(0);
+            speed = 0;
+            ScoreSetter.instance.CalculateScore(EndZone.instance.multiplier);
+            SceneManager.LoadScene(0);
+            //Sonraki levele geçiş ve puan hesabı şeysileri olacak bu arada
+        }
+        else if(speed <= 0 && !EndZone.instance.inEndZone){
+            SetSpeedIncrease(0);
+            speed = 0;
+            SceneManager.LoadScene(0);
+        }
         transform.Rotate(0f, horizontalInput * turnSpeedVal * Time.deltaTime, 0f);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
@@ -47,9 +57,19 @@ public class CarScript : MonoBehaviour
         speed += speedChange;
     }
 
+    public void SpeedUpImmensely(int speedChange)
+    {
+        speed *= speedChange;
+    }
+
     public void SlowDown(int speedChange)
     {
         speed -= speedChange;
+    }
+
+    public void SlowDownImmensely(int speedChange)
+    {
+        speed /= speedChange;
     }
 
     public void SetSpeedIncrease(float speedIncrease)
