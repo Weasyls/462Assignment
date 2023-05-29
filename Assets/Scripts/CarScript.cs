@@ -20,12 +20,14 @@ public class CarScript : MonoBehaviour
             instance = this;
         }
     }
+    
     void Update()
     {
         speed += speedIncrease * Time.deltaTime;
         if(speed <= 0 && EndZone.instance.inEndZone){
             SetSpeedIncrease(0);
             speed = 0;
+            AudioControllerScript.instance.PlaySound(0);
             ScoreSetter.instance.CalculateScore(EndZone.instance.multiplier);
             SceneManager.LoadScene(0);
             //Sonraki levele geçiş ve puan hesabı şeysileri olacak bu arada
@@ -33,6 +35,7 @@ public class CarScript : MonoBehaviour
         else if(speed <= 0 && !EndZone.instance.inEndZone){
             SetSpeedIncrease(0);
             speed = 0;
+            AudioControllerScript.instance.PlaySound(1);
             SceneManager.LoadScene(0);
         }
         transform.Rotate(0f, horizontalInput * turnSpeedVal * Time.deltaTime, 0f);
@@ -43,33 +46,42 @@ public class CarScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
+            AudioControllerScript.instance.PlaySound(2);
+            AudioControllerScript.instance.PlaySound(1);
             SceneManager.LoadScene(0);
         }
     }
 
     public void Turn(int value)
     {
+        if(value != 0){
+            AudioControllerScript.instance.PlaySound(6);
+        }
         horizontalInput = value;
     }
 
     public void SpeedUp(int speedChange)
     {
         speed += speedChange;
+        AudioControllerScript.instance.PlaySound(4);
     }
 
     public void SpeedUpImmensely(int speedChange)
     {
         speed *= speedChange;
+        AudioControllerScript.instance.PlaySound(4);
     }
 
     public void SlowDown(int speedChange)
     {
         speed -= speedChange;
+        AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SlowDownImmensely(int speedChange)
     {
         speed /= speedChange;
+        AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SetSpeedIncrease(float speedIncrease)

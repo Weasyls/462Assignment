@@ -11,6 +11,7 @@ public class SlowingObstacleScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             CarScript.instance.SlowDown(decrease);
+            AudioControllerScript.instance.PlaySound(2);
             Destroy(gameObject);
         }
     }

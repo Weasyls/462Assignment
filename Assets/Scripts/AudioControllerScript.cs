@@ -30,8 +30,17 @@ public class AudioControllerScript : MonoBehaviour
 
     public void PlaySound(int musicToPlay)
     {
+        GameObject[] musicObj = GameObject.FindGameObjectsWithTag("Audio");
+        foreach (GameObject music in musicObj)
+        {
+            DontDestroyOnLoad(music);
+        }
         musicSource[musicToPlay].Stop();
         musicSource[musicToPlay].Play();
     }
 
+    public void StopSound(int musicToStop)
+    {
+        musicSource[musicToStop].Stop();
+    }
 }

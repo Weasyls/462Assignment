@@ -38,6 +38,7 @@ public class DefBfScript : MonoBehaviour
                 if (int.TryParse(numericText, out int speedIncrease))
                 {
                     CarScript.instance.SpeedUp(speedIncrease);
+                    AudioControllerScript.instance.PlaySound(4);
                     Destroy(gameObject);
                 }
             }
@@ -50,6 +51,7 @@ public class DefBfScript : MonoBehaviour
                 if (int.TryParse(numericText, out int speedDecrease))
                 {
                     CarScript.instance.SlowDown(speedDecrease);
+                    AudioControllerScript.instance.PlaySound(3);
                     Destroy(gameObject);
                 }
             }
@@ -61,6 +63,7 @@ public class DefBfScript : MonoBehaviour
                 if (int.TryParse(numericText, out int speedDecrease))
                 {
                     CarScript.instance.SlowDownImmensely(speedDecrease);
+                    AudioControllerScript.instance.PlaySound(3);
                     Destroy(gameObject);
                 }
             }
@@ -72,6 +75,7 @@ public class DefBfScript : MonoBehaviour
                 if (int.TryParse(numericText, out int speedIncrease))
                 {
                     CarScript.instance.SpeedUpImmensely(speedIncrease);
+                    AudioControllerScript.instance.PlaySound(4);
                     Destroy(gameObject);
                 }
             }

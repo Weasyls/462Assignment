@@ -31,7 +31,12 @@ public class Menu : MonoBehaviour
         CancelInvoke();
         int highscore = PlayerPrefs.GetInt(ScoreSetter.HIGH_SCORE, 0);
         highScoreText.text = "High Score: " + highscore.ToString();
-        lastScoreText.text = "Last Score: " + Mathf.FloorToInt(ScoreSetter.instance.lastScore).ToString();
+        // if(ScoreSetter.instance.lastScore == null){
+        //     lastScoreText.text = "Last Score: Theres no Last Score";
+        // }
+        // else{
+        //     lastScoreText.text = "Last Score: " + Mathf.FloorToInt(ScoreSetter.instance.lastScore).ToString();
+        // }
         life = PlayerPrefs.GetInt(LIFE, maxLife);
 
         if (life == 0){
@@ -68,8 +73,8 @@ public class Menu : MonoBehaviour
     {
         if (life < 1) return;
         life--;
+        AudioControllerScript.instance.PlaySound(5);
         PlayerPrefs.SetInt(LIFE, life);
-    
         if (life == 0)
         {
             DateTime lifeIsReady = DateTime.Now.AddMinutes(lifeReGain);

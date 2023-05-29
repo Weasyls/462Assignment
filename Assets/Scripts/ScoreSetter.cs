@@ -6,7 +6,7 @@ using TMPro;
 public class ScoreSetter : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
-    private float score = 0;
+    public float score = 0;
     public float lastScore = 0;
     public const string HIGH_SCORE = "HighScore";
     public static ScoreSetter instance;
@@ -21,14 +21,13 @@ public class ScoreSetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score += Time.deltaTime;
         scoreText.text = Mathf.FloorToInt(score).ToString();    
     }
 
     private void OnDestroy()
     {
         int highscore = PlayerPrefs.GetInt(HIGH_SCORE, 0);
-        lastScore = score;
+        //lastScore = score;
         if (score > highscore)
         {
             PlayerPrefs.SetInt(HIGH_SCORE, Mathf.FloorToInt(score));

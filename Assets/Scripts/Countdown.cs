@@ -9,6 +9,8 @@ public class Countdown : MonoBehaviour
 {
     public TMP_Text textLabel;
     private bool controller = false;
+    int countdown = 30;
+    int timer = 30;
 
     void Update()
     {
@@ -23,15 +25,13 @@ public class Countdown : MonoBehaviour
     // Asynchronous operations for the countdown mechanic
     IEnumerator CountdownRoutine()
     {
-        // countdown seconds
-        int countdown = 30;
-
         // The counter and write to the text
         while (countdown > 0)
         {
             textLabel.text = countdown.ToString();
             yield return new WaitForSeconds(1);
             countdown--;
+            ScoreSetter.instance.score = (timer - countdown) * 10;
         }
 
         // When the counter is 0, DO SOMETHING

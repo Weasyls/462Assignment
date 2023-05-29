@@ -11,6 +11,7 @@ public class CHAIR : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !isHit)
         {
             isHit  = true;
+            AudioControllerScript.instance.PlaySound(2);
             Destroy(gameObject, 0.5f);
         }
         else if(!other.gameObject.CompareTag("Player") && !isHit)
