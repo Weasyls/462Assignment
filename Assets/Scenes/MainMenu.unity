@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 613828002}
   - component: {fileID: 613828001}
   m_Layer: 0
-  m_Name: PlayButtonText
+  m_Name: resetScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 1122245232}
   - component: {fileID: 1122245231}
   m_Layer: 0
-  m_Name: PlayButton (1)
+  m_Name: resetScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,7 +1062,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70751155}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: resetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
