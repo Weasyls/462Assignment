@@ -85,4 +85,8 @@ public class Menu : MonoBehaviour
         }
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
+    public void resetScore(){
+        PlayerPrefs.SetInt(ScoreSetter.HIGH_SCORE, 0);
+        highScoreText.text = "High Score: 0";
+    }
 }
