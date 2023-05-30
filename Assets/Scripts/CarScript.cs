@@ -157,4 +157,9 @@ public class CarScript : MonoBehaviour
     public void resetSavedScore(){
         PlayerPrefs.SetFloat(SAVED_SCORE, 0);
     }
+    public void Kill(){
+        resetSavedScore();
+        AudioControllerScript.instance.PlaySound(1);
+        SceneManager.LoadScene(0);
+    }
 }

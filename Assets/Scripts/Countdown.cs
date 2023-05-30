@@ -28,16 +28,18 @@ public class Countdown : MonoBehaviour
 
     // Asynchronous operations for the countdown mechanic
     IEnumerator CountdownRoutine()
-    {
+    { 
         // The counter and write to the text
         while (countdown > 0)
         {
             textLabel.text = "Time : " + countdown.ToString();
             yield return new WaitForSeconds(1);
             countdown -= 1f;
-            ScoreSetter.instance.score = oldScore + (countdown)* 12.5f;
-            
-            
+            ScoreSetter.instance.score = oldScore + (countdown)* 12.5f;  
+            if(countdown <= 1.5f)
+            {
+                CarScript.instance.Kill();
+            }   
         }
 
         // When the counter is 0, DO SOMETHING
