@@ -174,7 +174,7 @@ MonoBehaviour:
   highScoreText: {fileID: 1397651938}
   lastScoreText: {fileID: 1659143671}
   lifeText: {fileID: 1248928949}
-  maxLife: 50
+  maxLife: 5
   lifeReGain: 1
 --- !u!114 &70751156
 MonoBehaviour:
