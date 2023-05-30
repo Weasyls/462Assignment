@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour
         }
 
         // Display the remaining life count
-        textLabel.text = "Energy : " + life.ToString();
+        textLabel.text = life.ToString();
        
     }
 
