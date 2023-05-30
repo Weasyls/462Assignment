@@ -14,6 +14,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private TMP_Text lifeText;
     [SerializeField] private int maxLife;
     [SerializeField] private int lifeReGain;
+    
+    public TMP_Text textLabel;
 
     private const string LIFE = "Life";
     private const string LIFE_REGAIN = "LifeRegain";
@@ -66,7 +68,8 @@ public class Menu : MonoBehaviour
         }
 
         // Display the remaining life count
-        lifeText.text = "Play: (" + life.ToString() + ")";
+        textLabel.text = "Energy : " + life.ToString();
+       
     }
 
     // Callback function for when the life is ready
