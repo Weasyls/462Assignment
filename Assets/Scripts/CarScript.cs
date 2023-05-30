@@ -123,4 +123,9 @@ public class CarScript : MonoBehaviour
     {
         this.pitch = pitch;
     }
+
+    public int GetSpeed()
+    {
+        return Mathf.FloorToInt(speed);
+    }
 }

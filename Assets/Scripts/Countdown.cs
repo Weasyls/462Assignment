@@ -27,7 +27,7 @@ public class Countdown : MonoBehaviour
         // The counter and write to the text
         while (countdown > 0)
         {
-            textLabel.text = countdown.ToString();
+            textLabel.text = "Time : " + countdown.ToString();
             yield return new WaitForSeconds(1);
             countdown--;
             ScoreSetter.instance.score = (countdown)* 12.5f;
