@@ -9,12 +9,12 @@ public class SpeedWriter : MonoBehaviour
 
     void Start()
     {
-        textLabel.text = "Speed : " + CarScript.instance.GetSpeed().ToString();
+        textLabel.text = CarScript.instance.GetSpeed().ToString() + "\nKm/h";
     }
     
     void Update()
     {
-        textLabel.text = "Speed : " + CarScript.instance.GetSpeed().ToString();
+        textLabel.text = CarScript.instance.GetSpeed().ToString() + "\nKm/h";
     }
     
 }
