@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
     [SerializeField] AndroidNotificationsController androidNotificationController;
     [SerializeField] private Button playButton;
     [SerializeField] private TMP_Text highScoreText;
-    public TMP_Text lastScoreText;
+    [SerializeField] private TMP_Text lastScoreText;
     [SerializeField] private TMP_Text lifeText;
     [SerializeField] private int maxLife;
     [SerializeField] private int lifeReGain;
@@ -31,12 +31,10 @@ public class Menu : MonoBehaviour
         CancelInvoke();
         int highscore = PlayerPrefs.GetInt(ScoreSetter.HIGH_SCORE, 0);
         highScoreText.text = "High Score: " + highscore.ToString();
-        // if(ScoreSetter.instance.lastScore == null){
-        //     lastScoreText.text = "Last Score: Theres no Last Score";
-        // }
-        // else{
-        //     lastScoreText.text = "Last Score: " + Mathf.FloorToInt(ScoreSetter.instance.lastScore).ToString();
-        // }
+
+        int lastscore = PlayerPrefs.GetInt(ScoreSetter.LAST_SCORE, 0);
+        lastScoreText.text = "Last Score: " + lastscore.ToString();
+        
         life = PlayerPrefs.GetInt(LIFE, maxLife);
 
         if (life == 0){

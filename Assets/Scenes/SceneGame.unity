@@ -1173,7 +1173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 628099051}
   score: 0
-  lastScore: 0
 --- !u!4 &755603022
 Transform:
   m_ObjectHideFlags: 0

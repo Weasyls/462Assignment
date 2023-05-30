@@ -24,7 +24,6 @@ public class CarScript : MonoBehaviour
     
     void Update()
     {
-        DontDestroyOnLoad(this.gameObject);
         SetPitch(speed/30f);
         speed += speedIncrease * Time.deltaTime;
         if(speed <= 0 && EndZone.instance.inEndZone){
