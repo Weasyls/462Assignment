@@ -55,7 +55,7 @@ public class Menu : MonoBehaviour
                 Invoke(nameof(LifeReady),(lifeReady - DateTime.Now).Seconds);
             }
         }
-        lifeText.text = "Play: (" + life.ToString() + ")";
+        lifeText.text = life.ToString();
     }
 
     private void LifeReady()
@@ -63,7 +63,7 @@ public class Menu : MonoBehaviour
         playButton.interactable = true;
         life = maxLife;
         PlayerPrefs.SetInt(LIFE, life);
-        lifeText.text = "Play: (" + life.ToString() + ")";
+        lifeText.text = life.ToString();
     }
 
     //load scene 1
