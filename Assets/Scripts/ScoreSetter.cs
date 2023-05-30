@@ -23,7 +23,7 @@ public class ScoreSetter : MonoBehaviour
     {
         if(scoreText != null)
         {
-            scoreText.text = Mathf.FloorToInt(score).ToString(); // Update the score text with the current score
+            scoreText.text = "Score\n" + Mathf.FloorToInt(score).ToString(); // Update the score text with the current score
         }
     }
 
