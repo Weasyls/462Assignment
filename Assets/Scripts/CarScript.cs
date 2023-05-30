@@ -39,7 +39,14 @@ public class CarScript : MonoBehaviour
             speed = 0; // Set the speed to 0
             AudioControllerScript.instance.PlaySound(0); // Play a sound effect
             ScoreSetter.instance.CalculateScore(EndZone.instance.multiplier); // Calculate the score
-            SceneLoader.instance.LoadNextScene(); // Load the next level or main menu
+            if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                SceneLoader.instance.LoadStartMenuScene(); // Load the main menu
+            }
+            else{
+                SceneLoader.instance.LoadNextScene(); // Load the next level or main menu
+            }
+            
         }
         // Check if the car has stopped outside the end zone
         else if (speed <= 0 && !EndZone.instance.inEndZone)
