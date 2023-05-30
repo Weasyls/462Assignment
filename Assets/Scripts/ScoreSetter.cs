@@ -39,9 +39,10 @@ public class ScoreSetter : MonoBehaviour
         }
     }
 
-    public void CalculateScore(float multiplier)
+    public float CalculateScore(float multiplier)
     {
         score *= multiplier; // Multiply the score by the given multiplier
+        return score; // Return the new score
     }
 }
 

@@ -13,6 +13,7 @@ public class CarScript : MonoBehaviour
     [SerializeField] private float speed = 30f; // Initial speed of the car
     [SerializeField] private float speedIncrease = 0.1f; // Rate of speed increase over time
     [SerializeField] private float turnSpeedVal = 50f; // Turning speed of the car
+    public const string SAVED_SCORE = "SavedScore";
     public static CarScript instance; // Singleton instance of the car script
     public float pitch; // Current pitch value for audio playback
 
@@ -24,6 +25,19 @@ public class CarScript : MonoBehaviour
         {
             instance = this;
         }
+    }
+    void Start()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            resetSavedScore();
+        }
+        else
+        {
+            float savedScore = PlayerPrefs.GetFloat(SAVED_SCORE, 0);
+            ScoreSetter.instance.score = savedScore;
+        }
+        
     }
 
     // Update is called once per frame
@@ -38,10 +52,12 @@ public class CarScript : MonoBehaviour
             SetSpeedIncrease(0); // Stop the speed increase
             speed = 0; // Set the speed to 0
             AudioControllerScript.instance.PlaySound(0); // Play a sound effect
-            ScoreSetter.instance.CalculateScore(EndZone.instance.multiplier); // Calculate the score
+            float savedScore = ScoreSetter.instance.CalculateScore(EndZone.instance.multiplier); // Calculate the score
+            PlayerPrefs.SetFloat(SAVED_SCORE, savedScore);
             if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 3)
             {
                 SceneLoader.instance.LoadStartMenuScene(); // Load the main menu
+                resetSavedScore();
             }
             else{
                 SceneLoader.instance.LoadNextScene(); // Load the next level or main menu
@@ -54,6 +70,7 @@ public class CarScript : MonoBehaviour
             SetSpeedIncrease(0); // Stop the speed increase
             speed = 0; // Set the speed to 0
             AudioControllerScript.instance.PlaySound(1); // Play a sound effect
+            resetSavedScore();
             SceneManager.LoadScene(0); // Load the main menu
         }
 
@@ -71,6 +88,7 @@ public class CarScript : MonoBehaviour
         {
             AudioControllerScript.instance.PlaySound(2); // Play a sound effect
             AudioControllerScript.instance.PlaySound(1); // Play a sound effect
+            resetSavedScore();
             SceneManager.LoadScene(0); // Load the main menu
         }
     }
@@ -134,5 +152,9 @@ public class CarScript : MonoBehaviour
     public int GetSpeed()
     {
         return Mathf.FloorToInt(speed);
+    }
+
+    public void resetSavedScore(){
+        PlayerPrefs.SetFloat(SAVED_SCORE, 0);
     }
 }

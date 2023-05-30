@@ -9,8 +9,13 @@ public class Countdown : MonoBehaviour
 {
     public TMP_Text textLabel;
     private bool controller = false;
-    int countdown = 30;
+    float countdown = 30f;
+    float oldScore;
 
+    void Start()
+    {
+        oldScore = ScoreSetter.instance.score;
+    }
     void Update()
     {
         //begin the level count-down for ONCE
@@ -29,8 +34,10 @@ public class Countdown : MonoBehaviour
         {
             textLabel.text = "Time : " + countdown.ToString();
             yield return new WaitForSeconds(1);
-            countdown--;
-            ScoreSetter.instance.score = (countdown)* 12.5f;
+            countdown -= 1f;
+            ScoreSetter.instance.score = oldScore + (countdown)* 12.5f;
+            
+            
         }
 
         // When the counter is 0, DO SOMETHING
