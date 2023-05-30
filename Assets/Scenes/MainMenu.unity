@@ -1063,7 +1063,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70751155}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: resetScore
+        m_MethodName: ResetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
