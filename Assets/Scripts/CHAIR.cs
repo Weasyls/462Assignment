@@ -12,12 +12,12 @@ public class CHAIR : MonoBehaviour
         {
             isHit  = true;
             AudioControllerScript.instance.PlaySound(2);
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 1f);
         }
         else if(!other.gameObject.CompareTag("Player") && !isHit)
         {
             isHit = true;
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 1f);
         }
     }
 }

@@ -190,9 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac8ed1035bd893418c3b0c59e279110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  speedIncrease: 0.5
-  turnSpeedVal: 20
+  speed: 20
+  speedIncrease: 1
+  turnSpeedVal: 35
   pitch: 0
 --- !u!65 &8443457882299774321
 BoxCollider:
