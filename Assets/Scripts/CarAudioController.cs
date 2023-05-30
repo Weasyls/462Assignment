@@ -6,7 +6,7 @@ public class CarAudioController : MonoBehaviour
 {
     private AudioSource audioSource;
     private CarScript car;
-    private const float MinPitchValue = 1.4f;
+    private const float MinPitchValue = 1f;
     public float pitchValue;
     private void Start()
     {

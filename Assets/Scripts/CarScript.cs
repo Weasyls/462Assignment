@@ -24,6 +24,7 @@ public class CarScript : MonoBehaviour
     
     void Update()
     {
+        DontDestroyOnLoad(this.gameObject);
         SetPitch(speed/30f);
         speed += speedIncrease * Time.deltaTime;
         if(speed <= 0 && EndZone.instance.inEndZone){
@@ -77,13 +78,13 @@ public class CarScript : MonoBehaviour
     public void SlowDown(int speedChange)
     {
         speed -= speedChange;
-        // AudioControllerScript.instance.PlaySound(3);
+        AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SlowDownImmensely(int speedChange)
     {
         speed /= speedChange;
-        // AudioControllerScript.instance.PlaySound(3);
+        AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SetSpeedIncrease(float speedIncrease)

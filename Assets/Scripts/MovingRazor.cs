@@ -45,6 +45,7 @@ public class MovingRazor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             CarScript.instance.SlowDown(onHitSpeedDecrease);
+            AudioControllerScript.instance.PlaySound(2);
             Destroy(gameObject);
         }
     }
