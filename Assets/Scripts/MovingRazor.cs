@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MovingRazor : MonoBehaviour
 {
-    public float speed = 5f; //Movement speed of the block 
-    public int onHitSpeedDecrease = 5; //Speed decrease when the block hits the player
-    private bool movingRight = true; //In the beginning move to the left
-    public float rotationSpeed = 60f; // Dönme hızı
+    public float speed = 5f; // Movement speed of the block
+    public int onHitSpeedDecrease = 5; // Speed decrease when the block hits the player
+    private bool movingRight = true; // In the beginning move to the left
+    public float rotationSpeed = 60f; // Rotation speed
 
     private void Update()
     {
-// Rotate the block around its center on the Z-axis
+        // Rotate the block around its center on the Z-axis
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
 
         float movement = speed * Time.deltaTime;
@@ -44,9 +44,9 @@ public class MovingRazor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CarScript.instance.SlowDown(onHitSpeedDecrease);
-            AudioControllerScript.instance.PlaySound(2);
-            Destroy(gameObject);
+            CarScript.instance.SlowDown(onHitSpeedDecrease); // Decrease player's speed
+            AudioControllerScript.instance.PlaySound(2); // Play a sound effect
+            Destroy(gameObject); // Destroy the block
         }
     }
 }

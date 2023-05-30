@@ -6,15 +6,17 @@ public class CHAIR : MonoBehaviour
 {
     private bool isHit = false;
     public static CHAIR instance;
+
+    // Handle collision with other objects
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player") && !isHit)
         {
-            isHit  = true;
+            isHit = true;
             AudioControllerScript.instance.PlaySound(2);
             Destroy(gameObject, 1f);
         }
-        else if(!other.gameObject.CompareTag("Player") && !isHit)
+        else if (!other.gameObject.CompareTag("Player") && !isHit)
         {
             isHit = true;
             Destroy(gameObject, 1f);

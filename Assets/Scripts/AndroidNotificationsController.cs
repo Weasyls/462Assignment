@@ -8,10 +8,13 @@ using Unity.Notifications.Android;
 
 public class AndroidNotificationsController : MonoBehaviour
 {
-    #if UNITY_ANDROID
+#if UNITY_ANDROID
     private const string channel_id = "channel_id";
+
+    // Schedule a notification at the specified date and time
     public void ScheduleNotification(DateTime dateTime)
     {
+        // Create an Android notification channel
         AndroidNotificationChannel notificationChannel = new AndroidNotificationChannel()
         {
             Id = channel_id,
@@ -20,6 +23,8 @@ public class AndroidNotificationsController : MonoBehaviour
             Description = "Channel Description",
         };
         AndroidNotificationCenter.RegisterNotificationChannel(notificationChannel);
+
+        // Create an Android notification
         AndroidNotification notification = new AndroidNotification()
         {
             Title = "Life is Ready",
@@ -29,7 +34,8 @@ public class AndroidNotificationsController : MonoBehaviour
             FireTime = dateTime,
         };
         
+        // Send the notification using the specified channel ID
         AndroidNotificationCenter.SendNotification(notification, channel_id);
     }
-    #endif
+#endif
 }

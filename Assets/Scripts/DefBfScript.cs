@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class DefBfScript : MonoBehaviour
 {
     public TMP_Text textMesh;
@@ -9,9 +10,11 @@ public class DefBfScript : MonoBehaviour
     public Material greenMat;
     public Renderer left;
     public Renderer right;
+
     // Start is called before the first frame update
     void Start()
-    {;
+    {
+        // Change the material of the left and right renderers based on the text prefix
         if (textMesh.text.StartsWith("+") || textMesh.text.StartsWith("x"))
         {
             left.material = greenMat;
@@ -23,8 +26,8 @@ public class DefBfScript : MonoBehaviour
             right.material = redMat;
         }
     }
-    
 
+    // Handle collision with the player
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -34,7 +37,7 @@ public class DefBfScript : MonoBehaviour
                 // Extract the numeric part of the text (excluding the "+")
                 string numericText = textMesh.text.Substring(1);
 
-                // Attempt to parse the numeric part as an integer using int.Parse
+                // Attempt to parse the numeric part as an integer using int.TryParse
                 if (int.TryParse(numericText, out int speedIncrease))
                 {
                     CarScript.instance.SpeedUp(speedIncrease);
@@ -47,7 +50,7 @@ public class DefBfScript : MonoBehaviour
                 // Extract the numeric part of the text (excluding the "-")
                 string numericText = textMesh.text.Substring(1);
 
-                // Attempt to parse the numeric part as an integer using int.Parse
+                // Attempt to parse the numeric part as an integer using int.TryParse
                 if (int.TryParse(numericText, out int speedDecrease))
                 {
                     CarScript.instance.SlowDown(speedDecrease);
@@ -55,11 +58,12 @@ public class DefBfScript : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else if(textMesh.text.StartsWith("÷")){
+            else if (textMesh.text.StartsWith("÷"))
+            {
                 // Extract the numeric part of the text (excluding the "÷")
                 string numericText = textMesh.text.Substring(1);
 
-                // Attempt to parse the numeric part as an integer using int.Parse
+                // Attempt to parse the numeric part as an integer using int.TryParse
                 if (int.TryParse(numericText, out int speedDecrease))
                 {
                     CarScript.instance.SlowDownImmensely(speedDecrease);
@@ -67,11 +71,12 @@ public class DefBfScript : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else if(textMesh.text.StartsWith("x")){
+            else if (textMesh.text.StartsWith("x"))
+            {
                 // Extract the numeric part of the text (excluding the "x")
                 string numericText = textMesh.text.Substring(1);
 
-                // Attempt to parse the numeric part as an integer using int.Parse
+                // Attempt to parse the numeric part as an integer using int.TryParse
                 if (int.TryParse(numericText, out int speedIncrease))
                 {
                     CarScript.instance.SpeedUpImmensely(speedIncrease);
