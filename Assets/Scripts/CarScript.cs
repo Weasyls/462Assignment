@@ -9,6 +9,7 @@ public class CarScript : MonoBehaviour
     [SerializeField] private float speedIncrease = 0.1f;
     [SerializeField] private float turnSpeedVal = 50f;
     public static CarScript instance;
+    public float pitch;
 
     private float horizontalInput;
 
@@ -23,6 +24,7 @@ public class CarScript : MonoBehaviour
     
     void Update()
     {
+        SetPitch(speed/30f);
         speed += speedIncrease * Time.deltaTime;
         if(speed <= 0 && EndZone.instance.inEndZone){
             SetSpeedIncrease(0);
@@ -63,29 +65,38 @@ public class CarScript : MonoBehaviour
     public void SpeedUp(int speedChange)
     {
         speed += speedChange;
-        AudioControllerScript.instance.PlaySound(4);
+        // AudioControllerScript.instance.PlaySound(4);
     }
 
     public void SpeedUpImmensely(int speedChange)
     {
         speed *= speedChange;
-        AudioControllerScript.instance.PlaySound(4);
+        // AudioControllerScript.instance.PlaySound(4);
     }
 
     public void SlowDown(int speedChange)
     {
         speed -= speedChange;
-        AudioControllerScript.instance.PlaySound(3);
+        // AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SlowDownImmensely(int speedChange)
     {
         speed /= speedChange;
-        AudioControllerScript.instance.PlaySound(3);
+        // AudioControllerScript.instance.PlaySound(3);
     }
 
     public void SetSpeedIncrease(float speedIncrease)
     {
         this.speedIncrease = speedIncrease;
+    }
+
+    public float GetPitch()
+    {
+        return pitch;
+    }
+    public void SetPitch(float pitch)
+    {
+        this.pitch = pitch;
     }
 }
